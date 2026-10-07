@@ -215,3 +215,10 @@ dialog.lb img{width:100%;max-height:82vh;object-fit:contain;background:#000}
 dialog.lb p{color:#fff;margin-top:10px;font-weight:600}
 dialog.lb button{position:absolute;right:0;top:-48px;background:var(--red);color:#fff;border:0;font:700 .95rem var(--display);font-style:italic;text-transform:uppercase;padding:12px 20px;cursor:pointer}
 .cta-row{margin-top:36px}
+
+/* floating insurance badge on the hero */
+.ins-float{position:absolute;z-index:3;top:20px;right:max(var(--gutter),calc((100% - var(--max))/2 + var(--gutter)));display:flex;align-items:center;gap:10px;background:var(--white);color:var(--ink);border-left:6px solid var(--red);padding:10px 18px 10px 12px;font:800 .88rem/1 var(--display);font-style:italic;font-stretch:108%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.ins-float svg{width:24px;height:24px;color:var(--red);flex:none}
+.ins-float:hover{background:var(--paper)}
+@media(max-width:640px){.ins-float{top:12px;padding:8px 12px 8px 9px;font-size:.74rem}.ins-float svg{width:20px;height:20px}}
+@media(max-width:640px){.hero .wrap{padding-top:76px}}

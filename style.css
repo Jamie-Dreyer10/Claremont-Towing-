@@ -216,9 +216,19 @@ dialog.lb p{color:#fff;margin-top:10px;font-weight:600}
 dialog.lb button{position:absolute;right:0;top:-48px;background:var(--red);color:#fff;border:0;font:700 .95rem var(--display);font-style:italic;text-transform:uppercase;padding:12px 20px;cursor:pointer}
 .cta-row{margin-top:36px}
 
-/* floating insurance badge on the hero */
-.ins-float{position:absolute;z-index:3;top:20px;right:max(var(--gutter),calc((100% - var(--max))/2 + var(--gutter)));display:flex;align-items:center;gap:10px;background:var(--white);color:var(--ink);border-left:6px solid var(--red);padding:10px 18px 10px 12px;font:800 .88rem/1 var(--display);font-style:italic;font-stretch:108%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+
+@media(max-width:640px){.hero .wrap{padding-top:76px}}
+
+/* floating insurance banner: slides across once, then floats while you scroll */
+.ins-float{position:fixed;z-index:40;top:132px;right:24px;display:flex;align-items:center;gap:10px;background:var(--white);color:var(--ink);border-left:6px solid var(--red);padding:11px 18px 11px 12px;font:800 .88rem/1 var(--display);font-style:italic;font-stretch:108%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.35);animation:ins-in 1.6s cubic-bezier(.16,.84,.3,1) .5s both,ins-bob 5s ease-in-out 2.2s infinite}
 .ins-float svg{width:24px;height:24px;color:var(--red);flex:none}
 .ins-float:hover{background:var(--paper)}
-@media(max-width:640px){.ins-float{top:12px;padding:8px 12px 8px 9px;font-size:.74rem}.ins-float svg{width:20px;height:20px}}
-@media(max-width:640px){.hero .wrap{padding-top:76px}}
+@keyframes ins-in{from{transform:translateX(calc(100vw + 40px))}to{transform:translateX(0)}}
+@keyframes ins-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:820px){.ins-float{top:auto;bottom:calc(66px + env(safe-area-inset-bottom,0px));right:12px;padding:9px 13px 9px 10px;font-size:.74rem}.ins-float svg{width:20px;height:20px}}
+@media(prefers-reduced-motion:reduce){.ins-float{animation:none!important}}
+/* fleet day and night */
+.fleet figure{position:relative}
+.fleet figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;font:600 .85rem var(--body);padding:7px 22px 7px 12px;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,0 100%)}
+.fleet .half{aspect-ratio:3/2}
+.fleet img.night{object-position:62% 50%}
